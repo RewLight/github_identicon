@@ -14,10 +14,12 @@ jobs:
           channel: stable
 
       - run: flutter pub get
-      - run: flutter build web
 
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      - name: Deploy to Vercel
-        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --cwd build/web --confirm
+      - name: Build&Deploy
+        run: |
+          cd test/github_identicon_example
+          flutter build web
+          vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --cwd build/web --confirm
