@@ -79,7 +79,6 @@ class _GitHubAvatarPageState extends State<GitHubAvatarPage> {
 
             const SizedBox(height: 30),
 
-            // 控制面板
             Card(
               elevation: 2,
               shape: RoundedRectangleBorder(
