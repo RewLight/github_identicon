@@ -18,14 +18,13 @@ There is also a out-of-box component for instant use.
 
 Both `GithubIdenticon` and `GithubIdenticonGenerator` have the same args:  
 
-https://github.com/RewLight/github_identicon/blob/54f48c145d2c9a45eced6ea72024a399bfefdd1b/lib/github_identicon_generator.dart#L7-L17  
+https://github.com/RewLight/github_identicon/blob/977e98b2ed1d0a9c1c308ecf1cb02830f142c40f/lib/github_identicon_generator.dart#L8-L19  
 
 For example:  
 ```dart
 GithubIdenticon(
   seed: "octocat",
-  size: 256,
-  showGrid: false // Do notice that `showGrid` is an optional arg and defaults to `true`.
+  size: 256
 )
 ```  
 
