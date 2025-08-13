@@ -10,7 +10,7 @@ There is also a out-of-box component for instant use.
 
 ## Getting started
 
-1. add `github_identicon: ^1.0.0` as a dependency in your `pubspec.yaml`;  
+1. add `github_identicon: ^1.0.1` as a dependency in your `pubspec.yaml`;  
 2. import and use it;
 3. maybe enjoy it I guess?
 
@@ -22,11 +22,14 @@ https://github.com/RewLight/github_identicon/blob/977e98b2ed1d0a9c1c308ecf1cb028
 
 For example:  
 ```dart
+import 'package:github_identicon/github_identicon.dart';
+
 GithubIdenticon(
   seed: "octocat",
   size: 256
 )
 ```  
+That's it.  
 
 ## License
 

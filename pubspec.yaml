@@ -1,6 +1,6 @@
 name: github_identicon
 description: Github flavor Identicons for Dart&Flutter.
-version: 1.0.1
+version: 1.0.1+1
 repository: https://github.com/RewLight/github_identicon
 
 environment:
