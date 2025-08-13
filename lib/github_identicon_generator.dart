@@ -9,16 +9,19 @@ class GitHubIdenticonGenerator {
   final String seed;
   final double size;
   final bool showGrid;
+  final Color? color;
 
   /// Creates a GitHub identicon generator
   ///
   /// [seed] : Unique identifier for the avatar
   /// [size] : Output image size in pixels
-  /// [showGrid] : Whether to display the 5x5 grid lines (default: true)
+  /// [showGrid] : Whether to display the 5x5 grid lines (default: false)
+  /// [color] : Optional color for the identicon. If it's null, color is generated from hash.
   GitHubIdenticonGenerator({
     required this.seed,
     required this.size,
-    this.showGrid = true,
+    this.showGrid = false,
+    this.color,
   });
 
   /// Generates the identicon as a UI Image
@@ -27,9 +30,10 @@ class GitHubIdenticonGenerator {
     final digest = md5.convert(bytes);
     final hashHex = digest.toString();
 
-    final color = Color(
-      0xFF000000 | int.parse(hashHex.substring(0, 6), radix: 16),
-    );
+    final Color useColor =
+        (color != null)
+            ? color!
+            : Color(0xFF000000 | int.parse(hashHex.substring(0, 6), radix: 16));
 
     const gridSize = 5;
     final cellSize = (size / gridSize).floor();
@@ -71,7 +75,7 @@ class GitHubIdenticonGenerator {
       }
     }
 
-    final paint = ui.Paint()..color = color;
+    final paint = ui.Paint()..color = useColor;
 
     for (int y = 0; y < gridSize; y++) {
       for (int x = 0; x < (gridSize / 2).ceil(); x++) {

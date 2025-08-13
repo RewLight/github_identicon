@@ -8,17 +8,20 @@ class GitHubIdenticon extends StatelessWidget {
   final String seed;
   final double size;
   final bool showGrid;
+  final Color? color;
 
   /// Creates a GitHub-style identicon widget
   ///
   /// [seed] : Unique identifier for the avatar
   /// [size] : Display size in pixels
-  /// [showGrid] : Whether to display grid lines (default: true)
+  /// [showGrid] : Whether to display grid lines (default: false)
+  /// [color] : Optional color for the identicon. If it's null, color is generated from hash.
   const GitHubIdenticon({
     super.key,
     required this.seed,
     required this.size,
-    this.showGrid = true,
+    this.showGrid = false,
+    this.color,
   });
 
   @override
@@ -29,6 +32,7 @@ class GitHubIdenticon extends StatelessWidget {
             seed: seed,
             size: size,
             showGrid: showGrid,
+            color: color,
           ).generate(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done &&
